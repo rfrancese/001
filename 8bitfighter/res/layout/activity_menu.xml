@@ -1,8 +1,66 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.bitfighter.Menu_princ"
-    tools:ignore="MergeRootFrame" />
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@drawable/bg"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	<TableLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:stretchColumns="0">
+		
+	<TableRow>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="180dip"
+        android:src="@drawable/logo"
+        android:contentDescription="logo"
+        android:gravity="center" />
+	</TableRow>
+	<TableRow>
 
+	<Button
+	    android:id="@+id/play"
+	    android:layout_width="wrap_content"
+	    android:layout_height="100dip"
+	    android:layout_marginBottom="10dip"
+	    android:gravity="center"
+	    android:textAllCaps="true"
+	    android:textColor="#FFFFFF" />
+
+	</TableRow>
+	<TableRow>
+	<Button
+	    android:id="@+id/classifica"
+        android:layout_width="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="true"
+        android:layout_height="100dip"
+        android:layout_marginBottom="10dip"
+        android:gravity="center"
+        android:onClick="leggiclassifica" />
+    </TableRow>
+    <TableRow>
+    <Button
+        android:id="@+id/credits"
+        android:layout_width="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="true"
+        android:layout_height="100dip"
+        android:layout_marginBottom="10dip"
+        android:gravity="center"
+        android:onClick="leggicredits"  />
+    </TableRow>
+    <TableRow>
+    <Button
+        android:id="@+id/esci"
+        android:layout_width="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="true"
+        android:layout_height="100dip"
+        android:layout_marginBottom="10dip"
+        android:gravity="center"
+        android:onClick="esci"/>
+	</TableRow>
+	</TableLayout>
+</ScrollView>

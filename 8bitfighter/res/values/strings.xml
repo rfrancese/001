@@ -3,17 +3,35 @@
 
     <string name="app_name">8bitfighter</string>
     <string name="hello_world">Hello world!</string>
-     <string name="invitolingua">Scegli una lingua</string>
+    <string name="Alberto">Alberto Raffaele Casale</string>
+    <string name="Alberto_mail">mailalb@mail.it</string>
+    <string name="Giovanni">Giovanni Palumbo</string>
+    <string name="Giovanni_mail">mailgio@mail.it</string>
+    <string name="invitolingua">Scegli una lingua</string>
     <string name="ITA">ITA</string>
     <string name="ENG">ENG</string>
     <string name="FRA">FRA</string>
     <string name="logo">LOGO</string>
-    <string name="playIt">PLAY</string>
-    <string name="classificaIt">CLASSIFICA</string>
-    <string name="creditsIt">CREDITS</string>
-    <string name="esciIt">ESCI</string>
-    <string name="action_esci">Esci</string>
+    <string name="playITA">GIOCA</string>
+    <string name="playFRA">JEUX</string>
+    <string name="playENG">PLAY</string>
+    <string name="classificaITA">Classifica</string>
+    <string name="classificaFRA">Classement</string>
+    <string name="classificaENG">Rank</string>
+    <string name="creditsITA">Informazioni</string>
+    <string name="creditsFRA">Crédits</string>
+    <string name="creditsENG">Credits</string>
+    <string name="esciITA">Esci</string>
+    <string name="esciFRA">Sortie</string>
+    <string name="esciENG">Exit</string>
+    <string name="action_esci">Exit</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_classifica">Classifica</string>
+    <string name="title_activity_crediti">Crediti</string>
+    <string name="textcreditsITA">Gioco creato e sviluppato da</string>
+    <string name="textcreditsENG">Game created and developed by</string>
+    <string name="textcreditsFRA">Jeu créé et développé par</string>
+    <string name="title_activity_gioca">Gioca</string>
 
 </resources>
