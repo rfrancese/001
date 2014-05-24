@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.bitfighter.MainActivity"
+            android:name="it.unisa.bitfighter.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -25,23 +25,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.bitfighter.Menu_princ"
+            android:name="it.unisa.bitfighter.Menu_princ"
             android:label="@string/title_activity_menu"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.bitfighter.Classifica"
+            android:name="it.unisa.bitfighter.Classifica"
             android:label="@string/title_activity_classifica"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.bitfighter.Crediti"
-            android:label="@string/title_activity_crediti" >
+            android:name="it.unisa.bitfighter.Crediti"
+            android:label="@string/title_activity_crediti"
+            android:screenOrientation="portrait"  >
         </activity>
         <activity
-            android:name="com.example.bitfighter.Gioca"
-            android:label="@string/title_activity_gioca" >
+            android:name="it.unisa.bitfighter.Gioca"
+            android:label="@string/title_activity_gioca"
+            android:screenOrientation="portrait"  >
         </activity>
     </application>
-
+    
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
 </manifest>

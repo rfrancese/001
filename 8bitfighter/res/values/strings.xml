@@ -21,6 +21,9 @@
     <string name="creditsITA">Informazioni</string>
     <string name="creditsFRA">Crédits</string>
     <string name="creditsENG">Credits</string>
+    <string name="cambialinguaITA">Cambia lingua</string>
+    <string name="cambialinguaFRA">Changer de langue</string>
+    <string name="cambialinguaENG">Change language</string>
     <string name="esciITA">Esci</string>
     <string name="esciFRA">Sortie</string>
     <string name="esciENG">Exit</string>

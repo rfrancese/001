@@ -22,11 +22,12 @@
 	<Button
 	    android:id="@+id/play"
 	    android:layout_width="wrap_content"
-	    android:layout_height="100dip"
+	    android:layout_height="80dip"
 	    android:layout_marginBottom="10dip"
 	    android:gravity="center"
 	    android:textAllCaps="true"
-	    android:textColor="#FFFFFF" />
+	    android:textColor="#FFFFFF"
+	    android:onClick="gioca" />
 
 	</TableRow>
 	<TableRow>
@@ -35,7 +36,7 @@
         android:layout_width="wrap_content"
         android:textColor="#FFFFFF"
         android:textAllCaps="true"
-        android:layout_height="100dip"
+        android:layout_height="80dip"
         android:layout_marginBottom="10dip"
         android:gravity="center"
         android:onClick="leggiclassifica" />
@@ -46,10 +47,21 @@
         android:layout_width="wrap_content"
         android:textColor="#FFFFFF"
         android:textAllCaps="true"
-        android:layout_height="100dip"
+        android:layout_height="80dip"
         android:layout_marginBottom="10dip"
         android:gravity="center"
         android:onClick="leggicredits"  />
+    </TableRow>
+    <TableRow>
+    <Button
+        android:id="@+id/cambialingua"
+        android:layout_width="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="true"
+        android:layout_height="80dip"
+        android:layout_marginBottom="10dip"
+        android:gravity="center"
+        android:onClick="cambialingua"  />
     </TableRow>
     <TableRow>
     <Button
@@ -57,7 +69,7 @@
         android:layout_width="wrap_content"
         android:textColor="#FFFFFF"
         android:textAllCaps="true"
-        android:layout_height="100dip"
+        android:layout_height="80dip"
         android:layout_marginBottom="10dip"
         android:gravity="center"
         android:onClick="esci"/>

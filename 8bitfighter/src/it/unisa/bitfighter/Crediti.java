@@ -1,5 +1,7 @@
 /*Attività per i credits*/
-package com.example.bitfighter;
+package it.unisa.bitfighter;
+
+import com.example.bitfighter.R;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -10,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.os.Build;
 
@@ -23,6 +26,7 @@ public class Crediti extends Activity {
 				
 		
 		setContentView(R.layout.activity_crediti);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		
 		TextView titolocredits = (TextView)findViewById(R.id.credits);
 		TextView introcredits = (TextView)findViewById(R.id.intro);

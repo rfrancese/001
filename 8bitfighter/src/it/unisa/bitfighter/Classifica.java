@@ -1,7 +1,9 @@
 /*Attività per la classifica*/
-package com.example.bitfighter;
+package it.unisa.bitfighter;
 
 import java.util.Random;
+
+import com.example.bitfighter.R;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -35,6 +37,7 @@ public class Classifica extends Activity {
             
 		
 		setContentView(R.layout.activity_classifica);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		
 		TextView titoloclassifica = (TextView)findViewById(R.id.classifica);
         
