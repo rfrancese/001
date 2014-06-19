@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">8bitfighter</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">AeroFighter8bit</string>
     <string name="Alberto">Alberto Raffaele Casale</string>
-    <string name="Alberto_mail">mailalb@mail.it</string>
     <string name="Giovanni">Giovanni Palumbo</string>
-    <string name="Giovanni_mail">mailgio@mail.it</string>
+    <string name="indirizzimail">deciocavallo@gmail.com, shadows89@hotmail.it</string>
+    <string name="contattaciENG">Contact us</string> 
+    <string name="contattaciITA">Contattaci</string>
+    <string name="contattaciFRA">Contactez-nous</string>
     <string name="invitolingua">Scegli una lingua</string>
     <string name="ITA">ITA</string>
     <string name="ENG">ENG</string>
@@ -21,20 +22,50 @@
     <string name="creditsITA">Informazioni</string>
     <string name="creditsFRA">Crédits</string>
     <string name="creditsENG">Credits</string>
-    <string name="cambialinguaITA">Cambia lingua</string>
-    <string name="cambialinguaFRA">Changer de langue</string>
-    <string name="cambialinguaENG">Change language</string>
+    <string name="inviamailENG">Send e-mail</string> 
+    <string name="inviamailITA">Invia e-mail</string>
+    <string name="inviamailFRA">Envoyer un e-mail</string>
+    <string name="cambialinguaITA">ENG/ITA/FRA</string>
+    <string name="cambialinguaFRA">ENG/ITA/FRA</string>
+    <string name="cambialinguaENG">ENG/ITA/FRA</string>
     <string name="esciITA">Esci</string>
     <string name="esciFRA">Sortie</string>
     <string name="esciENG">Exit</string>
+    <string name="caricamentoITA">Caricamento, attendere ...</string>
+    <string name="caricamentoENG">Loading, waiting please ...</string>
+    <string name="caricamentoFRA">Chargement, patientez s\'il vous plait ...</string>
     <string name="action_esci">Exit</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_classifica">Classifica</string>
     <string name="title_activity_crediti">Crediti</string>
-    <string name="textcreditsITA">Gioco creato e sviluppato da</string>
-    <string name="textcreditsENG">Game created and developed by</string>
-    <string name="textcreditsFRA">Jeu créé et développé par</string>
-    <string name="title_activity_gioca">Gioca</string>
+    <string name="haitotalizzatoITA">Hai totalizzato</string>
+    <string name="haitotalizzatoENG">You scored</string>
+    <string name="haitotalizzatoFRA">Vous avez obtenu</string>
+    <string name="puntiITA">punti</string>
+    <string name="puntiENG">points</string>
+    <string name="puntiFRA">points</string>
+    <string name="inseriscinomeITA">Inserisci di seguito il tuo nome</string>
+    <string name="inseriscinomeENG">Please enter below your name</string>
+    <string name="inseriscinomeFRA">S\'il vous plaît entrer votre nom</string>
+    <string name="inviaITA">Invia</string>
+    <string name="inviaENG">Send</string>
+    <string name="inviaFRA">Envoyer</string>
+    <string name="nomevuotoITA">Nome vuoto</string>
+    <string name="nomevuotoENG">Empty name</string>
+    <string name="nomevuotoFRA">Nom vide</string>
+    <string name="suoniITA">Suoni:</string>
+    <string name="suoniENG">Sounds:</string>
+    <string name="suoniFRA">Sons:</string>
+    <string name="nessunaconnessioneITA">Nessuna connessione internet attiva</string>
+    <string name="nessunaconnessioneENG">No internet connection</string>
+    <string name="nessunaconnessioneFRA">Pas de connexion Internet active</string>
+    <string name="cliccaperinserireITA">clicca per inserire il nome</string>
+    <string name="cliccaperinserireENG">click to insert your name</string>
+    <string name="cliccaperinserireFRA">cliquez pour entrer votre nom</string>
+    <string name="textcreditsITA">Gioco creato e sviluppato nell\'anno 2014 in ambito didattico per l\'esame di Base Dati e Sistemi Informativi su Rete, tenuto dalla prof.ssa Franzese.</string>
+    <string name="textcreditsENG">Game created and developed in 2014 in both teaching for the exam of the Database and Information Systems Network, held by Professor Franzese.</string>
+    <string name="textcreditsFRA">Jeu créé et développé en 2014 à la fois dans l\'enseignement pour l\'examen de la base de données et des systèmes d\'information du Réseau, tenue par le professeur Franzese.</string>
+    <string name="sitoweb"><a href="http://aerofighter8bit.altervista.org">www.aerofighter8bit.altervista.org</a></string>
 
 </resources>

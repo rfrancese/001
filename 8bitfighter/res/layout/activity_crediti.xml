@@ -1,125 +1,144 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/bg"
+    android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".Crediti" >
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-         >
-	<TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="0"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" >
-        
-	<TableRow>
-	    <TextView
-	        android:id="@+id/credits"
-	        android:layout_width="fill_parent"
-	        android:layout_height="match_parent"
-	        android:layout_marginBottom="10dip"
-	        android:layout_marginTop="10dip"
-	        android:layout_weight="0.68"
-	        android:gravity="center"
-	        android:text="@string/creditsITA"
-	        android:textAllCaps="true"
-	        android:textColor="#FFFFFF"
-	        android:textSize="40dp" />
-	</TableRow>
-	</TableLayout>
-	
-	
-	<TableLayout
-	   android:id="@+id/tabellasviluppatori"	    
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="0"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" >
-	
-	    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+	<TextView
+	    android:id="@+id/credits"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_gravity="center"
+	    android:layout_marginBottom="10dip"
+	    android:layout_marginTop="10dip"
+	    android:layout_weight="0.68"
+	    android:gravity="center"
+	    android:text="@string/creditsITA"
+	    android:textAllCaps="true"
+	    android:textColor="#FFFFFF"
+	    android:textSize="40dp" />
+
+	<TextView
+	    android:id="@+id/intro"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="5dp"
+	    android:layout_weight="1"
+	    android:paddingTop="20dp"
+	    android:text="@string/textcreditsITA"
+	    android:textColor="#ffffff" />
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_weight="0.68"
+	    android:paddingTop="20dp" >
+
+	    <ImageView
+	        android:id="@+id/imageView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="20dp"
+	        android:paddingRight="10dp"
+	        android:src="@drawable/man" />
+
+	    <LinearLayout
 	        android:layout_width="match_parent"
-	        android:layout_gravity="center_horizontal"
-	        android:layout_margin="10dp" >
+	        android:layout_height="match_parent"
+	        android:layout_gravity="center_vertical"
+	        android:gravity="center_vertical"
+	        android:orientation="vertical"
+	        android:paddingRight="10dp" >
 
 	        <TextView
-	            android:id="@+id/intro"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_gravity="center_horizontal"
-	            android:layout_weight="1"
-	            android:layout_margin="5dp"
-	            android:text="@string/textcreditsITA"
-	            android:textColor="#ffffff" />
-	        
-	    </TableRow>
-	    
-	    <TableRow >
-
-	        <TableLayout 	            
-	            android:layout_margin="5dp" >
-
-	            <ImageView
-	                android:layout_width="match_parent"
-	                android:layout_height="match_parent"
-	                android:layout_marginLeft="10dp"
-	                android:src="@drawable/man" />
-	        </TableLayout>
-
-	        <TableLayout >
-	            <TableRow>
-	         		<TextView
 	            android:id="@+id/alberto"
-	            android:text="@string/Alberto"
-	            android:textColor="#ffffff" />
-	        
-	    	</TableRow>
-	    	<TableRow>
-	         		<TextView
-	            android:id="@+id/albertomail"
-	            android:text="@string/Alberto_mail"
-	            android:textColor="#ffffff" />
-	        
-	    	</TableRow>
-	        </TableLayout>	        
-	    </TableRow>
-	    <TableRow >
-
-	        <TableLayout 
 	            android:layout_width="wrap_content"
-	            android:layout_margin="5dp" >
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:text="@string/Alberto"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="@android:color/white" />
 
-	            <ImageView
-	                android:layout_width="match_parent"
-	                android:layout_height="match_parent"
-	                android:layout_marginLeft="10dp"
-	                android:src="@drawable/man" />
-	        </TableLayout>
+	    </LinearLayout>
+	</LinearLayout>
 
-	        <TableLayout >
-	            <TableRow>
-	         		<TextView
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_weight="0.68"
+	    android:paddingTop="20dp" >
+
+	    <ImageView
+	        android:id="@+id/imageView2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="20dp"
+	        android:paddingRight="10dp"
+	        android:src="@drawable/man" />
+
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:gravity="center_vertical"
+	        android:orientation="vertical"
+	        android:paddingRight="10dp" >
+
+	        <TextView
 	            android:id="@+id/giovanni"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
 	            android:text="@string/Giovanni"
-	            android:textColor="#ffffff" />
-	        
-	    	</TableRow>
-	    	<TableRow>
-	         		<TextView
-	            android:id="@+id/giovannimail"
-	            android:text="@string/Giovanni_mail"
-	            android:textColor="#ffffff" />
-	        
-	    	</TableRow>
-	        </TableLayout>	        
-	    </TableRow>
-    </TableLayout>
-    
-    </LinearLayout>
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="@android:color/white" />
+
+
+	    </LinearLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="0.68"
+	    android:orientation="vertical"
+	    android:paddingTop="10dp" >
+
+		<Button
+		    android:id="@+id/contattaci"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:clickable="true"
+		    android:text="@string/contattaciITA"
+		    android:textAppearance="?android:attr/textAppearanceMedium"
+		    android:textColor="@android:color/white" />
+
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_weight="0.68"
+	    android:orientation="vertical"
+	    android:paddingTop="10dp" >
+
+		<TextView
+		    android:id="@+id/sitoweb"
+		    android:autoLink="web"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:gravity="center"
+		    android:text="@string/sitoweb"
+		    android:textAppearance="?android:attr/textAppearanceMedium"
+		    android:textColor="@android:color/white" />
+
+	</LinearLayout>
+
+	</LinearLayout>
 
 </ScrollView>

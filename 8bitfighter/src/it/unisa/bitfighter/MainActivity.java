@@ -33,6 +33,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 import android.os.Build;
 
 
@@ -168,8 +169,9 @@ public class MainActivity extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		onDestroy();
-	    android.os.Process.killProcess(android.os.Process.myPid());
+    	Toast.makeText(this, "Fai una selezione", Toast.LENGTH_SHORT).show();
+//		onDestroy();
+//	    android.os.Process.killProcess(android.os.Process.myPid());
 	    // This above line close correctly
 	}
 
