@@ -1,6 +1,5 @@
 package it.unisa.bitfighter;
 
-import it.unisa.bitfighter.Classifica.task;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -121,7 +120,7 @@ public class GameOver extends Activity {
     	        	return;
     	        }
     	        else{
-    	        	new task().execute();
+    	        	new inserisciinclassifica().execute();
     	        }	
                 
             }
@@ -199,7 +198,7 @@ public class GameOver extends Activity {
 	}
 
 
-	class task extends AsyncTask<String, String, Void>
+	class inserisciinclassifica extends AsyncTask<String, String, Void>
     {
     private ProgressDialog progressDialog = new ProgressDialog(GameOver.this);
         InputStream is = null ;

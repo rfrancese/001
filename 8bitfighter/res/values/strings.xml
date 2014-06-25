@@ -45,6 +45,15 @@
     <string name="puntiITA">punti</string>
     <string name="puntiENG">points</string>
     <string name="puntiFRA">points</string>
+    <string name="pausaITA">Pausa</string>
+    <string name="pausaENG">Pause</string>
+    <string name="pausaFRA">Pause</string>
+    <string name="messaggioITA">sei in pausa, fai la tua scelta</string>
+    <string name="messaggioENG">you are in pause mode, make your choice</string>
+    <string name="messaggioFRA">vous êtes en mode pause, faites votre choix</string>
+    <string name="riprendiITA">Riprendi</string>
+    <string name="riprendiENG">Resume</string>
+    <string name="riprendiFRA">Continue</string>
     <string name="inseriscinomeITA">Inserisci di seguito il tuo nome</string>
     <string name="inseriscinomeENG">Please enter below your name</string>
     <string name="inseriscinomeFRA">S\'il vous plaît entrer votre nom</string>

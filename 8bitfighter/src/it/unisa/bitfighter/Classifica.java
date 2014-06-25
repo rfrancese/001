@@ -72,7 +72,7 @@ public class Classifica extends Activity {
 		
 		ll = (TableLayout) findViewById(R.id.tabellaclassifica);
                 	
-		new task().execute(); //legge la classifica dal database
+		new leggiclassifica().execute(); //legge la classifica dal database
 
        
         /*faccio un controllo sul valore della lingua e mi regolo di conseguenza sotto*/
@@ -98,7 +98,7 @@ public class Classifica extends Activity {
 	}
 	
 	
-	 class task extends AsyncTask<String, String, Void>
+	 class leggiclassifica extends AsyncTask<String, String, Void>
 	    {
 	    private ProgressDialog progressDialog = new ProgressDialog(Classifica.this);
 	        InputStream is = null ;
@@ -111,7 +111,7 @@ public class Classifica extends Activity {
 	        	   
 	    	@Override
 	    		public void onCancel(DialogInterface arg0) {
-	    			task.this.cancel(true);
+	    			leggiclassifica.this.cancel(true);
 	    	   }
 	    	});
 	         }
@@ -135,7 +135,7 @@ public class Classifica extends Activity {
 
 	    		} catch (Exception e) {
 	    		
-	    		noconn("niente");
+	    		noconn(nienteconnessione);
 	    		progressDialog.dismiss();
 	    		Log.e("log_tag", "Error in http connection "+e.toString());
 	    		}

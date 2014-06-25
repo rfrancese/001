@@ -7,7 +7,7 @@ import android.graphics.Canvas;
 public class MissileAirplane {
 	
 	float x,y;
-	int dimensioneschermo;
+	int dimensioneschermo,altezzaschermo;
 	int xSpeed, ySpeed;
 	int height, width;
 	int xrandom;
@@ -24,7 +24,8 @@ public class MissileAirplane {
 		width = m.getWidth();
 		x = y;
 		xSpeed = 0;
-		ySpeed = -7;
+		altezzaschermo = ov.getHeight();
+		ySpeed = -(int)(0.7 * altezzaschermo)/100;
 		dimensioneschermo = ov.getWidth();
 
 	}

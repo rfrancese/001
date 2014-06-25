@@ -51,8 +51,7 @@ public class Menu_princ extends Activity {
 			
 		Bundle b = getIntent().getExtras(); //prendo gli extras passati all'attività
 		lingua = b.getString("lang"); // prendo la lingua dall'extra
-	//	MUTA = b.getBoolean("muta");
-		
+	
 		
 				
 		super.onCreate(savedInstanceState);

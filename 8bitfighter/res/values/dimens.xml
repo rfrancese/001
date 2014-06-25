@@ -4,7 +4,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="gameFontSize">30sp</dimen>
-    <dimen name="classificaFontSize">9sp</dimen>
-    <dimen name="haitotalizzato">9sp</dimen>
+    <dimen name="introSize">18sp</dimen>
+    <dimen name="classificaFontSize">13px</dimen>
+    <dimen name="haitotalizzato">10dp</dimen>
 
 </resources>

@@ -13,7 +13,7 @@ import android.graphics.Rect;
 
 public class Sprite {
 	
-	float x,y,dadove,dimensioneschermo;
+	float x,y,dadove,dimensioneschermo,altezzaschermo;
 	int xSpeed, ySpeed, numeromissili;
 	int height, width;
 	int xrandom;
@@ -32,8 +32,9 @@ public class Sprite {
 		x = y = 0;
 		numeromissili = 3;
 		sparato = false;
+		altezzaschermo = ov.getHeight();
 		xSpeed = 0;
-		ySpeed = 2;
+		ySpeed = (int)(0.3 * altezzaschermo)/100;
 		dimensioneschermo = ov.getWidth();
 		
 		float Min = width/2;
@@ -52,11 +53,9 @@ public class Sprite {
 //			ySpeed = -2;
 //			xSpeed = 0;
 //		}
+		if(ySpeed < 2)
+			ySpeed = 2;
 		
-		if(y < 0){
-			ySpeed = 4;
-			xSpeed = 0;
-		}
 
 		x += xSpeed;
 		y += ySpeed;

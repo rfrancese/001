@@ -20,9 +20,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Paint.FontMetrics;
+import android.graphics.Paint.Style;
 import android.graphics.Point;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -48,9 +53,9 @@ public class Gioca extends Activity implements SensorEventListener {
 	private int sMissile;
 	
 	OurView v;
-	Bitmap airplane, nemico,nemico2,nemico3,nemico4, sfondo, missileaereo,missilenemico, esplosione,cuorepieno,cuorevuoto;
+	Bitmap airplane, nemico,nemico2,nemico3,nemico4, sfondo, missileaereo,missilenemico, esplosione,cuorepieno,cuorevuoto,frecce,tocca;
 	float x,y,ysfondo, posxmissile, posymissile;
-	SensorManager sensorManager = null;
+	SensorManager sensorManager;
 	Sensor accelerometer;
 	float xPosition, yPosition = 0.0f;
 	int LIMITEMOVY = 5;
@@ -77,6 +82,7 @@ public class Gioca extends Activity implements SensorEventListener {
 	int COLPITO;
 	int xcolpito;
 	int ycolpito;
+	int tutorial = 1;
 	
 	int VITE = 3;
 	int missililanciati=0;
@@ -87,18 +93,22 @@ public class Gioca extends Activity implements SensorEventListener {
 	int tempoingressonemici=3000;//iniziamo con 3 secondi
 	
 	int livello = 1;
+	
+	String pausapopup;
+	String messaggiopopup;
+	String escipopup;
+	String riprendipopup;
 
 
 	private Handler mHandler = new Handler();	
 
-
+	Typeface tf;
 	
 	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		primoavvio = true;
-		
+	
 		Bundle b = getIntent().getExtras(); //prendo gli extras passati all'attività
 		lingua = b.getString("lang"); // prendo la lingua dall'extra
 		SUONO = b.getBoolean("suono"); // prendo il booleano dei suoni
@@ -117,7 +127,50 @@ public class Gioca extends Activity implements SensorEventListener {
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		
-		airplane = BitmapFactory.decodeResource(getResources(), R.drawable.airplane);
+		Bitmap airplaneorig = BitmapFactory.decodeResource(getResources(), R.drawable.airplane);
+		float widthairplane = ((width*78)/540);
+		float heightairplane = (widthairplane*99)/78;
+		airplane = Bitmap.createScaledBitmap(airplaneorig, (int)widthairplane, (int)heightairplane, false);
+
+		Bitmap nemicoorig = BitmapFactory.decodeResource(getResources(), R.drawable.nemico);
+		float widthnemico = ((width*78)/540);
+		float heightnemico = (widthnemico*100)/78;
+		nemico = Bitmap.createScaledBitmap(nemicoorig, (int)widthnemico, (int)heightnemico, false);
+		
+		Bitmap nemico2orig = BitmapFactory.decodeResource(getResources(), R.drawable.nemico2);
+		float widthnemico2 = ((width*88)/540);
+		float heightnemico2 = (widthnemico2*102)/88;
+		nemico2 = Bitmap.createScaledBitmap(nemico2orig, (int)widthnemico2, (int)heightnemico2, false);
+		
+		Bitmap nemico3orig = BitmapFactory.decodeResource(getResources(), R.drawable.nemico3);
+		float widthnemico3 = ((width*79)/540);
+		float heightnemico3 = (widthnemico3*101)/79;
+		nemico3 = Bitmap.createScaledBitmap(nemico3orig, (int)widthnemico3, (int)heightnemico3, false);
+		
+		Bitmap nemico4orig = BitmapFactory.decodeResource(getResources(), R.drawable.nemico4);
+		float widthnemico4 = ((width*80)/540);
+		float heightnemico4 = (widthnemico4*101)/80;
+		nemico4 = Bitmap.createScaledBitmap(nemico4orig, (int)widthnemico4, (int)heightnemico4, false);
+		
+		Bitmap missileaereoorig = BitmapFactory.decodeResource(getResources(), R.drawable.missileaereo);
+		float widthmissileaereo = ((width*15)/540);
+		float heightmissileaereo = (widthmissileaereo*57)/15;
+		missileaereo = Bitmap.createScaledBitmap(missileaereoorig, (int)widthmissileaereo, (int)heightmissileaereo, false);
+
+		Bitmap missilenemicoorig = BitmapFactory.decodeResource(getResources(), R.drawable.missilenemico);
+		float widthmissilenemico = ((width*16)/540);
+		float heightmissilenemico = (widthmissilenemico*58)/16; 
+		missilenemico = Bitmap.createScaledBitmap(missilenemicoorig, (int)widthmissilenemico, (int)heightmissilenemico, false);
+		
+		
+		Bitmap esplosioneorig = BitmapFactory.decodeResource(getResources(), R.drawable.esplosione);
+		float widthesplosione = ((width*60)/540);
+		float heightesplosione = (widthesplosione*70)/60; 
+		esplosione = Bitmap.createScaledBitmap(esplosioneorig, (int)widthesplosione, (int)heightesplosione, false);
+		
+		sfondo = BitmapFactory.decodeResource(getResources(), R.drawable.sfondo);
+		
+		/* ORIGINAL CODE
 		nemico = BitmapFactory.decodeResource(getResources(), R.drawable.nemico);
 		nemico2 = BitmapFactory.decodeResource(getResources(), R.drawable.nemico2);
 		nemico3 = BitmapFactory.decodeResource(getResources(), R.drawable.nemico3);
@@ -126,8 +179,14 @@ public class Gioca extends Activity implements SensorEventListener {
 		missilenemico = BitmapFactory.decodeResource(getResources(), R.drawable.missilenemico);
 		sfondo = BitmapFactory.decodeResource(getResources(), R.drawable.sfondo);
 		esplosione = BitmapFactory.decodeResource(getResources(), R.drawable.esplosione);
+		*/
+		
 		cuorepieno = BitmapFactory.decodeResource(getResources(), R.drawable.vita);
 		cuorevuoto = BitmapFactory.decodeResource(getResources(), R.drawable.vitameno);
+		
+		frecce = BitmapFactory.decodeResource(getResources(), R.drawable.freccia);
+		tocca = BitmapFactory.decodeResource(getResources(), R.drawable.tocca);
+
 
 		
 		listamissilimio = new ArrayList<MissileAirplane>(); //array list missili miei
@@ -140,6 +199,29 @@ public class Gioca extends Activity implements SensorEventListener {
          matrix.postScale(1f, 1f);
 		
          nuovosfondo = Bitmap.createScaledBitmap(sfondo, width, 6*width, true);
+         
+	 	tf = Typeface.createFromAsset(getAssets(),"fonts/8bitoperator.ttf");
+
+         
+         
+        if(lingua.equals("ITA")){
+ 			pausapopup = getString(R.string.pausaITA);
+ 			messaggiopopup = getString(R.string.messaggioITA);
+ 			escipopup = getString(R.string.esciITA);
+ 			riprendipopup = getString(R.string.riprendiITA);
+ 		}
+ 		else if (lingua.equals("FRA")){
+ 			pausapopup = getString(R.string.pausaFRA);
+ 			messaggiopopup = getString(R.string.messaggioFRA);
+ 			escipopup = getString(R.string.esciFRA);
+ 			riprendipopup = getString(R.string.riprendiFRA);
+ 		}
+ 		else if(lingua.equals("ENG")){
+ 			pausapopup = getString(R.string.pausaENG);
+ 			messaggiopopup = getString(R.string.messaggioENG);
+ 			escipopup = getString(R.string.esciENG);
+ 			riprendipopup = getString(R.string.riprendiENG);
+ 		}
          
      
 		
@@ -154,11 +236,35 @@ public class Gioca extends Activity implements SensorEventListener {
 		sEsplosione = sounds.load(this, R.raw.esplode, 1);
 		sMissile = sounds.load(this, R.raw.missile, 1);
 		
-		
-		
-		
-	
+
 	}
+	
+	/*algoritmo resized bitmap*/
+	public Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth) {
+		 
+		int width = bm.getWidth();
+		 
+		int height = bm.getHeight();
+		 
+		float scaleWidth = ((float) newWidth) / width;
+		 
+		float scaleHeight = ((float) newHeight) / height;
+		 
+		// CREATE A MATRIX FOR THE MANIPULATION
+		 
+		Matrix matrix = new Matrix();
+		 
+		// RESIZE THE BIT MAP
+		 
+		matrix.postScale(scaleWidth, scaleHeight);
+		 
+		// RECREATE THE NEW BITMAP
+		 
+		Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
+		 
+		return resizedBitmap;
+		 
+		}
 	
 	
 	
@@ -191,7 +297,7 @@ public class Gioca extends Activity implements SensorEventListener {
 	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub
-		if((mostropopup == false)&&(primoavvio == false)){
+		if((mostropopup == false)){
 			showPopup();
 			v.pause();
 		}
@@ -242,12 +348,13 @@ public class Gioca extends Activity implements SensorEventListener {
 	
 	public void onBackPressed()  
 	{  
-	    //do whatever you want the 'Back' button to do  
-	    //as an example the 'Back' button is set to start a new Activity named 'NewActivity'
-		v.pause();
-		mutaSuoni();
-		showPopup();
-
+		if(primoavvio == false){
+		    //do whatever you want the 'Back' button to do  
+		    //as an example the 'Back' button is set to start a new Activity named 'NewActivity'
+			v.pause();
+			mutaSuoni();
+			showPopup();
+		}
 	} 
 
 		
@@ -256,10 +363,10 @@ public class Gioca extends Activity implements SensorEventListener {
 	    //fare il popup
 		mostropopup = true;
 		Context context = Gioca.this;
-	    String title = "PAUSA";
-	    String message = "sei in pausa, fai la tua scelta";
-	    String button1String = "Esci";
-	    String button2String = "Riprendi";
+	    String title = pausapopup;
+	    String message = messaggiopopup;
+	    String button1String = escipopup;
+	    String button2String = riprendipopup;
 	    mutaSuoni();
 
 	 
@@ -312,16 +419,8 @@ public class Gioca extends Activity implements SensorEventListener {
 		Bundle language = new Bundle();
 		language.putString("lang", lingua);
 		intent.putExtras(language);
-		//Bundle muta = new Bundle();
-		//muta.putBoolean("muta", MUTA);
-		//intent.putExtras(muta);
 		startActivity(intent); //inizio l'attività nuova
 		finish();
-		
-//		super.onPause();
-//		v.pause();
-//		sensorManager.unregisterListener(this);
-//		finish();
 	}
 
 
@@ -335,7 +434,7 @@ public class Gioca extends Activity implements SensorEventListener {
 		MissileAirplane missileairplane;
 		boolean spriteLoaded = false;
 		int scaledSize = getResources().getDimensionPixelSize(R.dimen.gameFontSize);
-		
+		int introSize = getResources().getDimensionPixelSize(R.dimen.introSize);
 		
 
 
@@ -360,13 +459,52 @@ public class Gioca extends Activity implements SensorEventListener {
 				 }
 
 				 Canvas c = holder.lockCanvas();
-				 onDraw(c);
+				 
+				 if(primoavvio == true){
+					    paint.setTypeface(tf);
+					    if(tutorial !=2)
+					    	mostratutorial(c);
+					    else
+							mostratutorial2(c);
+				 }
+				 else{
+					 onDraw(c);
+				 }
 				 holder.unlockCanvasAndPost(c);					 
 			}
 		}
 		
-		public void onDraw(final Canvas canvas){
-			
+		private void mostratutorial(Canvas c) {
+					aggiornasfondo(c); //fai scrollare lo sfondo	
+					c.drawBitmap(airplane, (int)x - (airplane.getWidth()/2), (int)y - (airplane.getHeight()/2), null);
+					paint.setTypeface(tf);
+			    	paint.setColor(Color.RED);
+			    	paint.setTextSize(introSize);
+			    	c.drawBitmap(frecce, width/2 - frecce.getWidth()/2, height/2 - frecce.getHeight()/2, paint);
+					c.drawText("Inclina", 20, height/4, paint);
+					c.drawText("per spostare l'aereo ... ", 20, height/4 + 40, paint);
+					paint.setTextSize(20);
+					paint.setColor(Color.RED);
+					c.drawText("Tocca lo schermo per continuare...", 0, height - height/3, paint);						
+		}
+		
+		private void mostratutorial2(Canvas c) {
+			aggiornasfondo(c); //fai scrollare lo sfondo	
+			c.drawBitmap(airplane, (int)x - (airplane.getWidth()/2), (int)y - (airplane.getHeight()/2), null);
+			paint.setTypeface(tf);
+			paint.setColor(Color.RED);
+			paint.setTextSize(introSize);
+	    	c.drawBitmap(tocca, width/2 - tocca.getWidth()/2, height/2 - tocca.getHeight()/2, paint);
+			c.drawText("... e tocca lo schermo ", 20, height/4, paint);
+			c.drawText("per sparare un missile!", 20, height/4 + 40, paint);
+			paint.setTextSize(20);
+			paint.setColor(Color.RED);
+			c.drawText("Tocca lo schermo per iniziare!", 0, height - height/3, paint);
+		}
+		
+
+
+		public void onDraw(final Canvas canvas){			
 			
 			
 			aggiornasfondo(canvas); //fai scrollare lo sfondo		 
@@ -418,10 +556,8 @@ public class Gioca extends Activity implements SensorEventListener {
 			
 		}
 		
-		
 
-		
-		
+
 		private void controllavite(Canvas canvas) {
 			if(VITE == 3){
 				canvas.drawBitmap(cuorepieno, width - cuorepieno.getWidth() - 15 , 30, paint);
@@ -451,7 +587,7 @@ public class Gioca extends Activity implements SensorEventListener {
 			if((nemiciuccisi > 5) && ((nemiciuccisi % 5) == 0)){
 				tempoingressonemici = tempoingressonemici - 80;
 				livello = livello + 1;
-				punteggio = (punteggio + (nemiciuccisi * livello))- missililanciati; 
+				punteggio = (punteggio + nemiciuccisi * livello)- missililanciati; 
 			}	
 		}
 		
@@ -535,6 +671,7 @@ public class Gioca extends Activity implements SensorEventListener {
 			listanemiciesplosi.add(nemico);
 		}
 		
+		/*quando sei colpito disegna un'esplosione*/
 		private void seicolpito(Canvas canvas){
 			if(COLPITO != 0){
 				canvas.drawBitmap(esplosione, xcolpito, ycolpito, paint);
@@ -548,7 +685,7 @@ public class Gioca extends Activity implements SensorEventListener {
 				MissileNemico missile = listamissilinemici.get(i);
 				
 //				if(isCollisionDetected(missile.m, (int)missile.x, (int)missile.y, airplane, (int)x, (int)y)){
-				if(checkForCollision(missile.m, (int)missile.x + (missile.width/2), (int)missile.y + (missile.height/2), airplane, (int)x, (int)y)){
+				if(checkForCollision(missile.m, (int)missile.x + (missile.width/2), (int)missile.y + (missile.height/2), airplane, (int)x - (airplane.getWidth()/2), (int)y)){
 //					canvas.drawBitmap(esplosione, x, y, paint);
 					COLPITO = 10;
 					xcolpito = (int)x;
@@ -570,7 +707,7 @@ public class Gioca extends Activity implements SensorEventListener {
 				
 				if(nemico.n != esplosione){
 //					if(isCollisionDetected(nemico.n, (int)nemico.x, (int)nemico.y, airplane, (int)x, (int)y)){
-					if(checkForCollision(nemico.n, (int)nemico.x + (nemico.width/2), (int)nemico.y + (nemico.height/2), airplane, (int)x, (int)y)){
+					if(checkForCollision(nemico.n, (int)nemico.x + (nemico.width/2), (int)nemico.y + (nemico.height/2), airplane, (int)x, (int)y - (airplane.getHeight()/2))){
 						esplodeaereonemico(nemico);
 						VITE = VITE-1;
 					}
@@ -628,8 +765,8 @@ public class Gioca extends Activity implements SensorEventListener {
 		        tempo = System.currentTimeMillis(); //where delay is previously defined long  
 		  
 		    if (System.currentTimeMillis()>=tempo+tempoingressonemici){ //3000 for our 3 seconds delay  
-		    	final Sprite nem = new Sprite (this, nemico);
-		    	sceglinemico(nem);
+//		    	final Sprite nem = new Sprite (this, nemico);
+		    	final Sprite nem = new Sprite (this, sceglinemico());
 				listanemici.add(nem);
 				
 				 new Timer().scheduleAtFixedRate(new TimerTask() { 
@@ -651,30 +788,25 @@ public class Gioca extends Activity implements SensorEventListener {
 		
 				
 		//scegli la bitmap del nemico in modo casuale
-		private void sceglinemico(Sprite nem) {
+		private Bitmap sceglinemico() {
 			Random rndNumbers = new Random(); 
 			int genera    = rndNumbers.nextInt(3)+1;
+			Bitmap nemicoscelto = null;
 			
 			if(genera == 1){
-				nem.n = nemico;
-				nem.width = nemico.getWidth();
-				nem.height = nemico.getHeight();
+				nemicoscelto = nemico;
 			}
 			else if(genera == 2){
-				nem.n = nemico2;
-				nem.width = nemico2.getWidth();
-				nem.height = nemico2.getHeight();
+				nemicoscelto = nemico2;
 			}
 			else if(genera == 3){
-				nem.n = nemico3;
-				nem.width = nemico3.getWidth();
-				nem.height = nemico3.getHeight();
+				nemicoscelto = nemico3;
 			}
 			else if(genera == 4){
-				nem.n = nemico4;
-				nem.width = nemico4.getWidth();
-				nem.height = nemico4.getHeight();
+				nemicoscelto = nemico4;
 			}
+			
+			return nemicoscelto;
 		}
 
 
@@ -696,6 +828,16 @@ public class Gioca extends Activity implements SensorEventListener {
 		        // Remember where we started
 //		        mLastTouchX = xpress;
 //		        mLastTouchY = ypress;
+		    	
+		    	
+		    	if(primoavvio == true){
+		    		if(tutorial!= 2)
+		    			tutorial = 2;
+		    		else
+		    			primoavvio = false;
+		    	}
+		    	
+		    	else{
 		        
 		        
 			        //quando si preme crea un nuovo oggetto missile e lo aggiunge all'array list
@@ -708,7 +850,7 @@ public class Gioca extends Activity implements SensorEventListener {
 									
 		       
 			        break;
-		        
+		    		}
 		    	}
 		    }
 		    return true;
@@ -827,7 +969,7 @@ public class Gioca extends Activity implements SensorEventListener {
     				x=airplane.getWidth()/2;
 
         	
-        		x -= xPosition*4;
+    			x = (float) (x - (xPosition * ((width * 0.8)/100)));
             //	y -=  yfinale;
   
         }

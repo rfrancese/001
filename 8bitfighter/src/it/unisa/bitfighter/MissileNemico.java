@@ -12,7 +12,7 @@ import android.media.SoundPool;
 public class MissileNemico {
 
 	float x,y;
-	int dimensioneschermo;
+	int dimensioneschermo,altezzaschermo;
 	int xSpeed, ySpeed;
 	int height, width;
 	int xrandom;
@@ -32,8 +32,9 @@ public class MissileNemico {
 		width = m.getWidth();
 		x = y =0;
 		xSpeed = 0;
-		ySpeed = +7;
 		dimensioneschermo = ov.getWidth();
+		altezzaschermo = ov.getHeight();
+		ySpeed = (int)(0.7 * altezzaschermo)/100;
 		suono = 0;
 
 	}
